@@ -16,10 +16,9 @@ postRouter.post("/posts/add",async(req,res)=>{
 })
 
 postRouter.get("/posts",async(req,res)=>{
-    const {device} = req.query;
     const {author} = req.body
     try{
-        const posts = await PostModel.find({author,device});
+        const posts = await PostModel.find({author});
         if(posts.length > 0)
         {
             res.send(posts);
